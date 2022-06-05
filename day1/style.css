@@ -9,7 +9,7 @@ body {
     justify-content: center;
     height: 100vh;
     width: 100vw;
-  }
+}
 .container{
     display: flex;
     width: 90vw;
