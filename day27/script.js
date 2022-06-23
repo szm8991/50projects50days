@@ -10,8 +10,6 @@ button.addEventListener('click', () => createNotification())
 function createNotification(message = null, type = null) {
   const notif = document.createElement('div')
 
-  notif.addEventListener('transitionend', () => notif.remove())
-
   notif.classList.add('toast')
 
   notif.classList.add(type ? type : getRandom('type'))
@@ -21,6 +19,13 @@ function createNotification(message = null, type = null) {
   toasts.appendChild(notif)
 
   setTimeout(() => {
+    notif.style.transform = 'translateY(0)'
+    notif.style.opacity = 1
+  })
+
+  setTimeout(() => {
+    notif.addEventListener('transitionend', () => notif.remove())
+    notif.style.transform = 'translateY(-100%)'
     notif.style.opacity = 0
   }, 2000)
 }
